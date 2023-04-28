@@ -1,11 +1,11 @@
 
 
-def AbstractPlayer():
+class AbstractPlayer():
 
     def __init__(self):
         raise NotImplementedError
 
-    def setup(self, config): # config is a dict
+    def setup(self, **config): # config is a dict
         raise NotImplementedError
 
     def act(self, game):

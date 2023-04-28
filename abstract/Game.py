@@ -1,4 +1,7 @@
 
+class MoveException(Exception):
+    pass
+
 
 class AbstractGame():
 

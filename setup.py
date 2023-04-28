@@ -6,6 +6,6 @@ setuptools.setup(
    description='Make simple RL toy models',
    author='Nicolò Rossi',
    author_email='olocin.issor@gmail.com',
-   install_requires=['wheel', 'torch'],
+   install_requires=['wheel', 'torch', 'numpy'],
    packages=setuptools.find_packages()
 )

@@ -5,8 +5,11 @@ class ReplayBufferRecord():
     def __init__(self, state, action):
         self.current = state.to_tensor()
         self.action = action
-        self.reward = state.reward()
-        self.next = state.simulate(action).to_tensor()
+        self.reward = state.get_current_reward()
+        next_state = state.simulate(action)
+        self.next = next_state.to_tensor()
+        self.future_reward = next_state.get_current_reward()
+        self.is_not_final = float(next_state.status() != 'end')
 
 
 # list based implementation
@@ -16,7 +19,7 @@ class ReplayBuffer():
         self.stack = []
 
     def pop(self, N=1): # returns a list of size N of tuples 
-        return random.choiches(self.stack, N)
+        return random.choices(self.stack, k=N)
 
     def push(self, state, action):
         record = ReplayBufferRecord(state, action)

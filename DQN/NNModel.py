@@ -1,6 +1,6 @@
 import torch
 
-class AbstractNNModel(torch.nn.Model):
+class AbstractNNModel(torch.nn.Module):
 
     def __init__(self):
         super().__init__()
